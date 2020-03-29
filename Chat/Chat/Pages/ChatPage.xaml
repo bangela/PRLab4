@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvx:MvxContentPage  xmlns:mvx="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+                     xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     mc:Ignorable="d"
+                     x:Class="Chat.Client.UI.Pages.ChatPage"
+                     xmlns:viewModels="clr-namespace:Chat.Clinet.Core.ViewModels;assembly=Chat.Clinet.Core"
+                     x:TypeArguments="viewModels:ChatPageViewModel"
+                     Title="Angela Chat">
+    <ContentPage.Content>
+        <StackLayout>
+            <mvx:MvxListView ItemsSource="{Binding Messages}"
+                         HasUnevenRows="True"
+                         SelectionMode="None"
+                         x:Name="List">
+                <mvx:MvxListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Username}" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="{Binding Message}" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </mvx:MvxListView.ItemTemplate>
+            </mvx:MvxListView>
+            <StackLayout Orientation="Horizontal">
+                <Entry HorizontalOptions="FillAndExpand"
+                       Text="{Binding Data}"
+                       Placeholder="Message"
+                       FontSize="14"/>
+                <Button Text="Send"
+                        Command="{Binding SendMessageCommand}"/>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</mvx:MvxContentPage>

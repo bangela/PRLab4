@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvx:MvxContentPage  xmlns:mvx="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+                     xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     mc:Ignorable="d"
+                     x:Class="Chat.Client.UI.Pages.LoginPage"
+                     xmlns:viewModels="clr-namespace:Chat.Clinet.Core.ViewModels;assembly=Chat.Clinet.Core"
+                     x:TypeArguments="viewModels:LoginPageViewModel">
+    <ContentPage.Content>
+        <StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Text="Angela Chat"
+                  FontSize="20"
+                  FontAttributes="Bold"
+                  HorizontalTextAlignment="Center"/>
+            <Entry Text="{Binding Username}"
+                   FontSize="14"
+                   WidthRequest="300"
+                   Placeholder="Username"/>
+        </StackLayout>
+        <Button VerticalOptions="End"
+                MinimumHeightRequest="50"
+                Text="Enter"
+                Command="{Binding LoginCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</mvx:MvxContentPage>
